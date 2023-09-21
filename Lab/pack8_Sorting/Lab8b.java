@@ -4,9 +4,9 @@ import java.util.Collections;
 
 public class Lab8b {
     public static void main(String[] args) {
-        // int[] arr = {10, 13, 9, 15, 18, 21, 13, 8, 5, 11, 3};
-        // whatSortIsThis(arr,32);
-        testRuntime();
+        int[] arr = {10, 13, 9, 15, 18, 21, 13, 8, 5, 11, 3};
+        whatSortIsThis(arr,11);
+        // testRuntime();
     }
 
     private static void whatSortIsThis(int [] arr, int PREFERRED_SIZE) {
@@ -59,45 +59,45 @@ public class Lab8b {
             twob[twobCounter++] = rightArr[rightCounter++];
     }
 
-    private static void testRuntime() {
-        int ARRAY_SIZE = 2000000;
-        int [] arr32 = new int[1];
-        int [] arr2048 = new int[1];;
-        int [] arr3 = new int[1];;
-        int numIter = 10;
-        int [] size32Time = new int[numIter];
-        int [] size2048Time = new int[numIter];
-        int [] sizeSortTime = new int[numIter];
-        ArrayList<Integer> list = new ArrayList<>();
+    // private static void testRuntime() {
+    //     int ARRAY_SIZE = 2000000;
+    //     int [] arr32 = new int[1];
+    //     int [] arr2048 = new int[1];;
+    //     int [] arr3 = new int[1];;
+    //     int numIter = 10;
+    //     int [] size32Time = new int[numIter];
+    //     int [] size2048Time = new int[numIter];
+    //     int [] sizeSortTime = new int[numIter];
+    //     ArrayList<Integer> list = new ArrayList<>();
 
-        for (int i = 1; i <= ARRAY_SIZE; i++)
-            list.add(i);
-        for (int i = 0; i < numIter; i++) {
-            Collections.shuffle(list);
-            arr32 = list.stream().mapToInt(Integer::intValue).toArray();
-            arr2048 = list.stream().mapToInt(Integer::intValue).toArray();
-            arr3 = list.stream().mapToInt(Integer::intValue).toArray();
-            long startElapse = System.currentTimeMillis();
-            whatSortIsThis(arr32, 32);
-            size32Time[i] = (int)(System.currentTimeMillis() - startElapse);
-            startElapse = System.currentTimeMillis();
-            whatSortIsThis(arr2048, 2048);
-            size2048Time[i] = (int)(System.currentTimeMillis() - startElapse);
-            startElapse = System.currentTimeMillis();
-            Arrays.sort(arr3);
-            sizeSortTime[i] = (int)(System.currentTimeMillis() - startElapse);
-        }
+    //     for (int i = 1; i <= ARRAY_SIZE; i++)
+    //         list.add(i);
+    //     for (int i = 0; i < numIter; i++) {
+    //         Collections.shuffle(list);
+    //         arr32 = list.stream().mapToInt(Integer::intValue).toArray();
+    //         arr2048 = list.stream().mapToInt(Integer::intValue).toArray();
+    //         arr3 = list.stream().mapToInt(Integer::intValue).toArray();
+    //         long startElapse = System.currentTimeMillis();
+    //         whatSortIsThis(arr32, 32);
+    //         size32Time[i] = (int)(System.currentTimeMillis() - startElapse);
+    //         startElapse = System.currentTimeMillis();
+    //         whatSortIsThis(arr2048, 2048);
+    //         size2048Time[i] = (int)(System.currentTimeMillis() - startElapse);
+    //         startElapse = System.currentTimeMillis();
+    //         Arrays.sort(arr3);
+    //         sizeSortTime[i] = (int)(System.currentTimeMillis() - startElapse);
+    //     }
 
-        System.out.println("confirm isSort " + isSort(arr32) + " " + isSort(arr2048) + " " + isSort(arr3));
-        System.out.println("takes " + Arrays.toString(size32Time));
-        System.out.println("takes " + Arrays.toString(size2048Time));
-        System.out.println("takes " + Arrays.toString(sizeSortTime));
-    }
+    //     System.out.println("confirm isSort " + isSort(arr32) + " " + isSort(arr2048) + " " + isSort(arr3));
+    //     System.out.println("takes " + Arrays.toString(size32Time));
+    //     System.out.println("takes " + Arrays.toString(size2048Time));
+    //     System.out.println("takes " + Arrays.toString(sizeSortTime));
+    // }
 
-    private static boolean isSort(int [] arr) {
-        for (int i = 1; i < arr.length; i++)
-            if (arr[i - 1] > arr[i])
-                return false;
-        return true;
-    }
+    // private static boolean isSort(int [] arr) {
+    //     for (int i = 1; i < arr.length; i++)
+    //         if (arr[i - 1] > arr[i])
+    //             return false;
+    //     return true;
+    // }
 }
